@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scan_and_pay/widgets/custom_button.dart';
 
 class CurrencyConverterMaterialPage extends StatelessWidget {
   const CurrencyConverterMaterialPage({super.key});
@@ -17,6 +18,9 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 255, 255, 255)),
           ),
+          SizedBox(
+            height: 50,
+          ),
           TextField(
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
@@ -31,6 +35,10 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(60))),
             ),
           ),
+          SizedBox(
+            height: 50,
+          ),
+          CustomButton(),
         ],
       )),
     );
