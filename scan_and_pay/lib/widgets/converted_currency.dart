@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//stateless widget is immutable
 class ConvertedCurrencyContainer extends StatefulWidget {
   const ConvertedCurrencyContainer({super.key});
 
@@ -10,11 +11,15 @@ class ConvertedCurrencyContainer extends StatefulWidget {
 
 class _ConvertedCurrencyContainerState
     extends State<ConvertedCurrencyContainer> {
+  //define initial state
+  final String displayText = "";
+
   @override
   Widget build(BuildContext context) {
+      int result = 0;
     return Container(
       child: Text(
-        'A counter that starts at 0',
+        displayText.isEmpty ? result:  ,
         textAlign: TextAlign.center,
         style: TextStyle(
             fontSize: 40,
