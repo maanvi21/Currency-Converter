@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-//stateless widget is immutable
 class ConvertedCurrencyContainer extends StatefulWidget {
-  const ConvertedCurrencyContainer({super.key});
+  final double amount;
+
+  const ConvertedCurrencyContainer({super.key, required this.amount});
 
   @override
   State<ConvertedCurrencyContainer> createState() =>
@@ -11,20 +12,19 @@ class ConvertedCurrencyContainer extends StatefulWidget {
 
 class _ConvertedCurrencyContainerState
     extends State<ConvertedCurrencyContainer> {
-  //define initial state
-  final String displayText = "";
-
   @override
   Widget build(BuildContext context) {
-      int result = 0;
     return Container(
       child: Text(
-        displayText.isEmpty ? result:  ,
+        widget.amount == 0
+            ? "Please enter an amount"
+            : "Converted Amount: ${widget.amount * 81}",
         textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 255, 255, 255)),
+        style: const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 255, 255, 255),
+        ),
       ),
     );
   }
