@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scan_and_pay/widgets/converted_currency.dart';
 import 'package:scan_and_pay/widgets/custom_button.dart';
 
 class CurrencyConverterMaterialPage extends StatelessWidget {
@@ -11,20 +12,15 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            '0',
-            style: TextStyle(
-                fontSize: 45,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 255, 255, 255)),
-          ),
+          ConvertedCurrencyContainer(),
           SizedBox(
             height: 50,
           ),
+          //text field in which you put in the amount
           TextField(
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
-              hintText: "Please enetr the amount in USD",
+              hintText: "Please enter the amount in USD",
               hintStyle: TextStyle(color: Colors.black),
               prefixIcon: Icon(Icons.monetization_on_outlined),
               prefixIconColor: Colors.black,
@@ -34,13 +30,20 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.black, width: 2),
                   borderRadius: BorderRadius.all(Radius.circular(60))),
             ),
+            keyboardType: TextInputType.numberWithOptions(
+              decimal: true,
+            ),
           ),
           SizedBox(
             height: 50,
           ),
-          CustomButton(),
+          CustomButton(
+            buttonText: "Convert",
+          ),
         ],
       )),
     );
   }
 }
+
+// why filled:true ?

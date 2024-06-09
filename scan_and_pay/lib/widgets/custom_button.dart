@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
-  const CustomButton({Key? key}) : super(key: key);
+  // here define the props
+  final String buttonText;
+
+  const CustomButton({
+    Key? key,
+    required this.buttonText,
+  }) : super(key: key);
   @override
   _CustomButtonState createState() => _CustomButtonState();
 }
 
 class _CustomButtonState extends State<CustomButton> {
-  Color buttonColor = Color.fromARGB(255, 58, 70, 104);
+  // here define the initial states of the button
+  Color buttonColor = const Color.fromARGB(255, 58, 70, 104);
   Color textColor = const Color.fromARGB(255, 255, 255, 255);
 
   @override
@@ -15,27 +22,34 @@ class _CustomButtonState extends State<CustomButton> {
     return Container(
       child: ElevatedButton(
         onPressed: () {
-          setState(() {
-            buttonColor = Color.fromARGB(255, 255, 255, 255);
-            textColor = Color.fromARGB(255, 125, 125, 157);
-          });
+          setState(
+            () {
+              buttonColor = const Color.fromARGB(255, 255, 255, 255);
+              textColor = const Color.fromARGB(255, 125, 125, 157);
+            },
+          );
 
-          Future.delayed(const Duration(milliseconds: 200), () {
-            setState(() {
-              buttonColor = Color.fromARGB(255, 58, 70, 104);
-              textColor = Colors.white;
-            });
-          });
+          Future.delayed(
+            const Duration(milliseconds: 200),
+            () {
+              setState(
+                () {
+                  buttonColor = const Color.fromARGB(255, 58, 70, 104);
+                  textColor = Colors.white;
+                },
+              );
+            },
+          );
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: buttonColor, // Set the button color dynamically
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          fixedSize: Size(300, 50),
+          fixedSize: const Size(300, 50),
         ),
         child: Text(
-          "Convert",
+          widget.buttonText,
           style: TextStyle(
             color: textColor,
             fontWeight: FontWeight.bold,
