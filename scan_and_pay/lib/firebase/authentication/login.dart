@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:scan_and_pay/firebase/authentication/sign_up.dart';
 
 class MyLoginPage extends StatefulWidget {
   const MyLoginPage({super.key});
@@ -22,19 +24,19 @@ class _MyLoginPageState extends State<MyLoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
-                    Text(
+                    const Text(
                       "Welcome Back,",
                       style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
                           color: Colors.black),
                     ),
-                    Text("Convert currencies with ease.",
+                    const Text("Convert currencies with ease.",
                         style: TextStyle(fontSize: 18, color: Colors.black)),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     Form(
@@ -42,17 +44,17 @@ class _MyLoginPageState extends State<MyLoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          TextField(
+                          const TextField(
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.person_2_outlined),
                                 labelText: "Email",
                                 hintText: "Email",
                                 border: OutlineInputBorder()),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          TextField(
+                          const TextField(
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.lock_open_outlined),
                                 suffixIcon: IconButton(
@@ -63,11 +65,11 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                 hintText: "Password",
                                 border: OutlineInputBorder()),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 3,
                           ),
                           // forgot password button
-                          TextButton(
+                          const TextButton(
                             onPressed: null,
                             child: Text(
                               "Forgot Password?",
@@ -75,7 +77,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                             ),
                           ),
                           // submit button
-                          SizedBox(
+                          const SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: null,
@@ -85,13 +87,13 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
-                              Text(
+                              const Text(
                                 "OR",
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               SizedBox(
@@ -102,7 +104,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                     width: 30,
                                   ),
                                   onPressed: null,
-                                  label: Text("Sign in with Google"),
+                                  label: const Text("Sign in with Google"),
                                 ),
                               ),
                               SizedBox(
@@ -112,12 +114,22 @@ class _MyLoginPageState extends State<MyLoginPage> {
                                 onPressed: null,
                                 child: Text.rich(
                                   TextSpan(
-                                      text: "Already have an account? ",
-                                      children: const [
+                                      text: "Don't have an account yet? ",
+                                      children: [
                                         TextSpan(
-                                            text: "Signup",
-                                            style: TextStyle(
-                                                color: Colors.deepPurple))
+                                          text: "Signup",
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        MySignUpPage(),
+                                                  ));
+                                            },
+                                          style: const TextStyle(
+                                              color: Colors.deepPurple),
+                                        ),
                                       ]),
                                 ),
                               ),
