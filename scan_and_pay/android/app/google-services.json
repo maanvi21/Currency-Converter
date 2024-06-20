@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "258567177431",
+    "project_id": "currency-converter-c4502",
+    "storage_bucket": "currency-converter-c4502.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258567177431:android:5c7757ffb26eb9414a1c92",
+        "android_client_info": {
+          "package_name": "com.example.scan_and_pay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzt3jXZqSVx7G_z82YTRCdEvJoMRmXPrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
